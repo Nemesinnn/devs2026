@@ -1,6 +1,32 @@
 <mvc:View controllerName="dev2026.controller.Main"
     xmlns:mvc="sap.ui.core.mvc"
+    xmlns:core="sap.ui.core"
     xmlns="sap.m">
     <Page id="page" title="{i18n>title}">
+        <Table id="currencyTable"
+            items="{/ZC_FV_CURR}"
+            growing="true" 
+            growingThreshold="20">
+            <columns>
+                <Column id="_IDGenColumn"><Text id="_IDGenText1" text="Moneda"/></Column>
+                <Column id="_IDGenColumn1"><Text id="_IDGenText2" text="Símbolo"/></Column>
+                <Column id="_IDGenColumn2"><Text id="_IDGenText3" text="Region"/></Column>
+                <Column id="_IDGenColumn3"><Text id="_IDGenText4" text="Tasa USD"/></Column>
+                <Column id="_IDGenColumn4"><Text id="_IDGenText5" text="Estado"/></Column>
+                <Column id="_IDGenColumn5"><Text id="_IDGenText6" text="Last Sync"/></Column>
+            </columns>
+            <items>
+                <ColumnListItem id="_IDGenColumnListItem">
+                    <cells>
+                        <ObjectIdentifier id="_IDGenObjectIdentifier" title="{Waers}" text="{Name}"/>
+                        <Text id="_IDGenText7" text="{Simbol}"/>
+                        <Text id="_IDGenText8" text="{Region}"/>
+                        <Text id="_IDGenText9" text="{TasaUsd}"/>
+                        <core:Icon id="_IDGenIcon" src="sap-icon://message-error" color="Negative"/>
+                        <Text id="_IDGenText10" text="{LastSync}"/>
+                    </cells>
+                </ColumnListItem>
+            </items>
+        </Table>
     </Page>
 </mvc:View>
