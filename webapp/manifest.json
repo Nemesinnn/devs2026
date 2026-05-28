@@ -72,6 +72,10 @@
           "bundleName": "dev2026.i18n.i18n"
         }
       },
+      "localCurrencies": {
+        "type": "sap.ui.model.json.JSONModel",
+        "uri": "model/localModel.json"
+      },
       "": {
         "dataSource": "mainService",
         "preload": true,

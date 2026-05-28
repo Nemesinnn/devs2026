@@ -3,9 +3,25 @@
     xmlns:core="sap.ui.core"
     xmlns="sap.m">
     <Page id="page" title="{i18n>title}">
+        <ComboBox id="currencyComboBox"
+            change=".onFiltrarPorMoneda"
+            showClearIcon="true"
+            showSecondaryValues="true"
+            filterSecondaryValues="true"
+            items="{
+                path: 'localCurrencies>/Currencies',
+                sorter: { path: 'currencyName' }
+            }">
+            <core:ListItem id="_IDGenListItem"
+                key="{localCurrencies>currencyCode}"
+                text="{localCurrencies>currencyName}"
+                additionalText="{localCurrencies>currencyCode}"/>
+        </ComboBox>
+
+        <!-- La tabla, con SUS columnas e items, sin nada ajeno en medio -->
         <Table id="currencyTable"
             items="{/ZC_FV_CURR}"
-            growing="true" 
+            growing="true"
             growingThreshold="20">
             <columns>
                 <Column id="_IDGenColumn"><Text id="_IDGenText1" text="Moneda"/></Column>
@@ -21,7 +37,7 @@
                         <ObjectIdentifier id="_IDGenObjectIdentifier" title="{Waers}" text="{Name}"/>
                         <Text id="_IDGenText7" text="{Simbol}"/>
                         <Text id="_IDGenText8" text="{Region}"/>
-                         <Text id="_IDGenText9" text="{
+                        <Text id="_IDGenText9" text="{
                             path: 'TasaUsd',
                             type: 'sap.ui.model.type.Float',
                             formatOptions: { minFractionDigits: 2, maxFractionDigits: 2 }
@@ -32,7 +48,7 @@
                         <Text id="_IDGenText10" text="{
                             path: 'LastSync',
                             type: 'sap.ui.model.type.Date',
-                            formatOptions: { UTC: true ,pattern: 'dd.MM.yyyy' }
+                            formatOptions: { UTC: true, pattern: 'dd.MM.yyyy' }
                         }"/>
                     </cells>
                 </ColumnListItem>

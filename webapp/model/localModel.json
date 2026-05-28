@@ -1,0 +1,7 @@
+{
+    "Currencies": [
+        { "currencyCode": "AMD", "currencyName": "Dram armenio" },
+        { "currencyCode": "ANG", "currencyName": "Florín de las Antillas Neerlandesas" },
+        { "currencyCode": "EUR", "currencyName": "EUR" }
+    ]
+}
