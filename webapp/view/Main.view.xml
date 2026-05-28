@@ -22,7 +22,9 @@
                         <Text id="_IDGenText7" text="{Simbol}"/>
                         <Text id="_IDGenText8" text="{Region}"/>
                         <Text id="_IDGenText9" text="{TasaUsd}"/>
-                        <core:Icon id="_IDGenIcon" src="sap-icon://message-error" color="Negative"/>
+                        <core:Icon id="_IDGenIcon"
+                            src="{path: 'Status', formatter: '.formatter.formatStatusIcon'}"
+                            color="{path: 'Status', formatter: '.formatter.formatStatusColor'}"/>
                         <Text id="_IDGenText10" text="{LastSync}"/>
                     </cells>
                 </ColumnListItem>
