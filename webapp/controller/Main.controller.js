@@ -2,8 +2,9 @@ sap.ui.define([
     "sap/ui/core/mvc/Controller",
     "dev2026/model/formatter",
     "sap/ui/model/Filter",
-    "sap/ui/model/FilterOperator"
-], (Controller, formatter, Filter, FilterOperator) => {
+    "sap/ui/model/FilterOperator",
+    "sap/m/MessageBox"
+], (Controller, formatter, Filter, FilterOperator, MessageBox) => {
     "use strict";
 
     return Controller.extend("dev2026.controller.Main", {
@@ -39,18 +40,55 @@ sap.ui.define([
         },
 
         onLoadData() {
-            // 
+            const oModel = this.getView().getModel();
+
+            oModel.callFunction("/upload_data_api", {   
+                method: "POST",
+                success: (oData) => {
+                    oModel.refresh(true);
+                    MessageBox.success("Operación ejecutada correctamente");
+                },
+                error: (oError) => {
+                    MessageBox.error("Error al ejecutar la operación");
+                }
+            });
         },
 
         onGetRateUSD() {
-            // 
-        },
-         onNavToSmartView() {
-        const oRouter = this.getOwnerComponent().getRouter();
-        oRouter.navTo("smartView");
+            const oModel = this.getView().getModel();
+            const oRowSelected = this.byId("currencyTable").getSelectedItem();
+
+            if (!oRowSelected) {
+                MessageBox.error("Selecciona primero una moneda de la tabla");
+                return;
+            }
+
+            const oRowObject = oRowSelected.getBindingContext().getObject();
+            const sWaers = oRowObject.Waers;
+            const bIsActive = oRowObject.IsActiveEntity;
+
+            oModel.callFunction("/get_tasa_usd", { 
+                method: "POST",
+                urlParameters: {
+                    Waers: sWaers,
+                    IsActiveEntity: bIsActive
+                },
+                success: (oData) => {
+                    oModel.refresh(true);
+                    MessageBox.success("Operación ejecutada correctamente");
+                },
+                error: (oError) => {
+                    MessageBox.error("Error al ejecutar la operación");
+                }
+            });
         },
 
-      onFilaPulsada(oEvent) {
+        onNavToSmartView() {
+            const oRouter = this.getOwnerComponent().getRouter();
+            oRouter.navTo("smartView");
+        },
+
+        onFilaPulsada(oEvent) {
             const oItem = oEvent.getSource();
             const sPath = oItem.getBindingContext().getPath().substring(1);
             const oRouter = this.getOwnerComponent().getRouter();

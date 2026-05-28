@@ -21,6 +21,7 @@
         <!-- La tabla, con SUS columnas e items, sin nada ajeno en medio -->
         <Table id="currencyTable"
             items="{/ZC_FV_CURR}"
+             mode="SingleSelectLeft"
             growing="true"
             growingThreshold="20">
             <columns>

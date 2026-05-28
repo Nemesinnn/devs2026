@@ -1,6 +1,39 @@
-<mvc:View
+<mvc:View controllerName="dev2026.controller.SmartView"
     xmlns="sap.m"
-    xmlns:mvc="sap.ui.core.mvc">
-    <Page id="_IDGenPage1" title="Smart View">
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:smartFilterBar="sap.ui.comp.smartfilterbar"
+    xmlns:smartTable="sap.ui.comp.smarttable">
+    <Page id="_IDGenPageSmart"
+        title="Vista con Smart Controls"
+        showNavButton="true"
+        navButtonPress=".onNavBack">
+
+        <VBox id="_IDGenVBox" fitContainer="true">
+
+            <smartFilterBar:SmartFilterBar
+                id="smartFilterBar"
+                entitySet="ZC_FV_CURR"
+                persistencyKey="SmartFilter_ZC_FV_CURR">
+                <smartFilterBar:layoutData>
+                    <FlexItemData id="_IDGenFlexItem1" shrinkFactor="0"/>
+                </smartFilterBar:layoutData>
+            </smartFilterBar:SmartFilterBar>
+
+            <smartTable:SmartTable
+                id="smartTable"
+                entitySet="ZC_FV_CURR"
+                smartFilterId="smartFilterBar"
+                tableType="Table"
+                enableExport="true"
+                useVariantManagement="true"
+                useTablePersonalisation="true"
+                enableAutoBinding="true"
+                showRowCount="true">
+                <smartTable:layoutData>
+                    <FlexItemData id="_IDGenFlexItem2" growFactor="1" baseSize="0%"/>
+                </smartTable:layoutData>
+            </smartTable:SmartTable>
+
+        </VBox>
     </Page>
 </mvc:View>
