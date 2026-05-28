@@ -89,34 +89,40 @@
         }
       ]
     },
-    "routing": {
-      "config": {
+   "routing": {
+    "config": {
         "routerClass": "sap.m.routing.Router",
         "controlAggregation": "pages",
         "controlId": "app",
         "transition": "slide",
         "type": "View",
         "viewType": "XML",
-        "path": "dev2026.view",
         "async": true,
-        "viewPath": "dev2026.view"
-      },
-      "routes": [
-        {
-          "name": "RouteMain",
-          "pattern": ":?query:",
-          "target": [
-            "TargetMain"
-          ]
-        }
-      ],
-      "targets": {
-        "TargetMain": {
-          "id": "Main",
-          "name": "Main"
-        }
-      }
+        "path": "dev2026.view"
     },
+    "routes": [
+        {
+            "name": "RouteMain",
+            "pattern": ":?query:",
+            "target": ["TargetMain"]
+        },
+        {
+            "name": "detail",
+            "pattern": "detail/{itemPath}",
+            "target": ["TargetDetail"]
+        },
+        {
+            "name": "smartView",
+            "pattern": "smartview",
+            "target": ["TargetSmartView"]
+        }
+    ],
+    "targets": {
+        "TargetMain": { "id": "Main", "name": "Main" },
+        "TargetDetail": { "id": "Detail", "name": "Detail" },
+        "TargetSmartView": { "id": "SmartView", "name": "SmartView" }
+    }
+},
     "rootView": {
       "viewName": "dev2026.view.App",
       "type": "XML",

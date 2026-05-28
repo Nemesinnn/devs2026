@@ -32,7 +32,7 @@
                 <Column id="_IDGenColumn5"><Text id="_IDGenText6" text="Last Sync"/></Column>
             </columns>
             <items>
-                <ColumnListItem id="_IDGenColumnListItem">
+                <ColumnListItem id="_IDGenColumnListItem" type="Navigation" press=".onFilaPulsada">
                     <cells>
                         <ObjectIdentifier id="_IDGenObjectIdentifier" title="{Waers}" text="{Name}"/>
                         <Text id="_IDGenText7" text="{Simbol}"/>
@@ -54,5 +54,13 @@
                 </ColumnListItem>
             </items>
         </Table>
+  <footer>
+    <OverflowToolbar id="_IDGenOverflowToolbar">
+        <Button id="_IDGenButton1" text="Cargar Datos" type="Accept" press=".onLoadData"/>
+        <Button id="_IDGenButton2" text="Obtener Tasa USD" type="Reject" press=".onGetRateUSD"/>
+        <ToolbarSpacer id="_IDGenToolbarSpacer"/>
+        <Button id="_IDGenButton3" text="Navegar a Smart View" type="Emphasized" press=".onNavToSmartView"/>
+    </OverflowToolbar>
+</footer>
     </Page>
 </mvc:View>

@@ -36,6 +36,27 @@ sap.ui.define([
                 aFilters.push(new Filter("Waers", FilterOperator.EQ, sClave));
             }
             oBinding.filter(aFilters);
+        },
+
+        onLoadData() {
+            // 
+        },
+
+        onGetRateUSD() {
+            // 
+        },
+         onNavToSmartView() {
+        const oRouter = this.getOwnerComponent().getRouter();
+        oRouter.navTo("smartView");
+        },
+
+      onFilaPulsada(oEvent) {
+            const oItem = oEvent.getSource();
+            const sPath = oItem.getBindingContext().getPath().substring(1);
+            const oRouter = this.getOwnerComponent().getRouter();
+            oRouter.navTo("detail", {
+                itemPath: window.encodeURIComponent(sPath)
+            });
         }
     });
 });

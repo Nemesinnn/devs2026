@@ -1,0 +1,28 @@
+<mvc:View controllerName="dev2026.controller.Detail"
+    xmlns="sap.m"
+    xmlns:mvc="sap.ui.core.mvc">
+    <Page id="_IDGenPage"
+        title="Detalle de la moneda"
+        showNavButton="true"
+        navButtonPress=".onNavBack">
+
+        <ObjectHeader id="_IDGenObjectHeader"
+            intro="{Name}"
+            title="{Waers}">
+            <attributes>
+                <ObjectAttribute id="_IDGenAttr1" title="Símbolo" text="{Simbol}"/>
+                <ObjectAttribute id="_IDGenAttr2" title="Región" text="{Region}"/>
+                <ObjectAttribute id="_IDGenAttr3" title="Tasa USD" text="{
+                    path: 'TasaUsd',
+                    type: 'sap.ui.model.type.Float',
+                    formatOptions: { minFractionDigits: 2, maxFractionDigits: 2 }
+                }"/>
+                <ObjectAttribute id="_IDGenAttr4" title="Última actualización" text="{
+                    path: 'LastSync',
+                    type: 'sap.ui.model.type.Date',
+                    formatOptions: { UTC: true, pattern: 'dd.MM.yyyy' }
+                }"/>
+            </attributes>
+        </ObjectHeader>
+    </Page>
+</mvc:View>
