@@ -21,11 +21,19 @@
                         <ObjectIdentifier id="_IDGenObjectIdentifier" title="{Waers}" text="{Name}"/>
                         <Text id="_IDGenText7" text="{Simbol}"/>
                         <Text id="_IDGenText8" text="{Region}"/>
-                        <Text id="_IDGenText9" text="{TasaUsd}"/>
+                         <Text id="_IDGenText9" text="{
+                            path: 'TasaUsd',
+                            type: 'sap.ui.model.type.Float',
+                            formatOptions: { minFractionDigits: 2, maxFractionDigits: 2 }
+                        }"/>
                         <core:Icon id="_IDGenIcon"
                             src="{path: 'Status', formatter: '.formatter.formatStatusIcon'}"
                             color="{path: 'Status', formatter: '.formatter.formatStatusColor'}"/>
-                        <Text id="_IDGenText10" text="{LastSync}"/>
+                        <Text id="_IDGenText10" text="{
+                            path: 'LastSync',
+                            type: 'sap.ui.model.type.Date',
+                            formatOptions: { UTC: true ,pattern: 'dd.MM.yyyy' }
+                        }"/>
                     </cells>
                 </ColumnListItem>
             </items>
